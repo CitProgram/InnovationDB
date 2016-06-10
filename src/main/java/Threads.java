@@ -1,35 +1,45 @@
 import java.util.Random;
 
 
-
-
-public class Threads{
-    public static String  str = "123";
-    public static int mathod(){
-        int x =10;
-        try {
-
-            String s = null;
-            s.length();
-
-        }catch (Exception e){
-            System.out.println("hello");
-            return x++;
-        }finally {
-            return ++x;
-        }
+class Runner implements Runnable{
+    private Object o;
+    Runner(Object o){
+        this.o = o;
     }
-    static Random random = new Random();
+
+@Override
+public void run() {
+        while (true)
+        {
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName() + o.toString());
+        }
+
+}
+        }
+
+
+public class Threads {
+    public static String str = "123";
 
     public static void main(String[] args) throws InterruptedException {
-        String sss = "123";
-        String ssss = "12".concat("3").intern();
-        String ww = "3";
+        Object o = new Object();
+        Thread thread = new Thread(new Runner(o));
+        Thread thread2 = new Thread(new Runner(o));
 
-        System.out.println(sss == ssss);
-
+        synchronized (o){
+            thread.start();
+            thread2.start();
         }
+        Thread.sleep(1000);
+        System.out.println(thread.getState());
+        thread.stop();
 
     }
+}
 
 
