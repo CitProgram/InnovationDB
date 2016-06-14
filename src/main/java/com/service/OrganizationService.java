@@ -65,7 +65,7 @@ public class OrganizationService {
         }
 
         if (organization.getSubject() != null) {
-            System.out.println(subjectService);
+
             organization.setSubject(subjectService.getSubjectByName(organization.getSubject().getName()));
         }
 

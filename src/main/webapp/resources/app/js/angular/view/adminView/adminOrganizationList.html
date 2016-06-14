@@ -8,17 +8,10 @@
                     ng-checked="selection.indexOf(fruitName) > -1"
                     ng-click="toggleSelection(organization.id)">
 
-           <!-- <p ng-click>  </p>-->
             <li ng-click = "goToOrgInfo(organization)"> {{organization.fullName}} </li>
         </label>
         <button ng-click="setAgreedOrgs(selection)" class="btn btn-default ">Додати</button>
 
-        <!--<ul class="list-group" ng-repeat="organization in organizations">
-           <li class="list-group-item"> {{organization.fullName}}
-               <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"/>
-
-           </li>
-       </ul>-->
 
 </div>
 

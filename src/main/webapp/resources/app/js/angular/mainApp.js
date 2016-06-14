@@ -11,6 +11,8 @@ mainApp.config(['$routeProvider','$locationProvider', function($routeProvider,$l
             .when('/addOrg',              {templateUrl: 'app/js/angular/view/AddOrganization.html',     controller: 'addOrganizationController'})
             .when('/organizationsInfo',   {templateUrl: 'app/js/angular/view/OrganizationInfo.html',    controller: 'fullOrganizationInfoController'})
             .when('/stupidInfo',          {templateUrl: 'app/js/angular/view/StupidInfo.html',          controller: 'StufidInfoController'})
+            .when('/404',                 {templateUrl: '/app/error.html'})
+
             .otherwise({redirectTo: '/'});
 
         $locationProvider.html5Mode({

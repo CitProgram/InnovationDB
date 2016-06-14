@@ -1,30 +1,51 @@
 <div class = "container">
-    <div ng-model="location"  >
-        <p>Місцезнаходження: <input type="text" name="location" ng-model="location"  class = "input-group"required /></p>
-        <button ng-click="SendData('location')"  class="btn btn-default">Додати</button>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="location">Місцезнаходження</label>
+            <input type="text" class="form-control" id="location" ng-model="location">
+            <button ng-click="SendData('location')"  class="btn btn-default">Додати</button>
+        </div>
+
+        <div class="form-group">
+            <label for="phase">Етап:</label>
+            <input type="text" class="form-control" id="phase" ng-model="phase">
+            <button ng-click="SendData('phase')"  class="btn btn-default">Додати</button>
+        </div>
+
+        <div class="form-group">
+            <label for="phase">Ім'я суб'єкта інноваційної інфраструктури: </label>
+            <input type="text" class="form-control" id="subjectName" ng-model="subjectName">
+            <label for="subjectUrl">Посилання:</label>
+            <input type="text" class="form-control" id="subjectUrl" ng-model="subjectUrl">
+            <div class="form-group">
+                <label for = "membershipForSubject">Інституційна принадлежність:</label>
+                <select multiple class = "form-control"
+                        name           = "membershipForSubject"
+                        id             = "membershipForSubject"
+                        ng-model       = "membershipForSubject"
+                        ng-options     = "membership.name  for  membership in memberships">
+                </select>
+            </div>
+            <button ng-click="SendData('subject')"  class="btn btn-default">Додати</button>
+        </div>
+
+        <div class="form-group">
+            <label for="sphere">Сфера діяльності: </label>
+            <input type="text" class="form-control" id="sphere" ng-model="sphere">
+            <button ng-click="SendData('sphere')"  class="btn btn-default">Додати</button>
+        </div>
+
+        <div class="form-group">
+            <label for="membership">Інституційна принадлежність:</label>
+            <input type="text" class="form-control" id="membership" ng-model="membership">
+            <button ng-click="SendData('membership')"  class="btn btn-default">Додати</button>
+        </div>
+
     </div>
 
-    <div>
-        <p>Етап: <input type="text" name="phase" ng-model="phase"  class = "input-group" required /></p>
-        <button ng-click="SendData('phase')"  class="btn btn-default ">Додати</button>
     </div>
 
-    <div>
-        <p>Ім'я суб'єкта інноваційної інфраструктури: <input type="text" name="subjectName" ng-model="subjectName" class = "input-group" required /></p>
-        <p>Посилання: <input type="text" name="subjectUrl" ng-model="subjectUrl" class = "input-group" required /></p>
 
-        <button ng-click="SendData('subject')" class="btn btn-default ">Додати</button>
-    </div>
-    <div>
-        <p>Сфера діяльності: <input type="text" name="sphere" ng-model="sphere" class = "input-group" required /></p>
-        <button ng-click="SendData('sphere')" class="btn btn-default ">Додати</button>
-    </div>
-
-    <div>
-        <p>Інституційна принадлежність: <input type="text" name="membership" ng-model="membership" class = "input-group" required /></p>
-        <button ng-click="SendData('membership')" class="btn btn-default">Додати</button>
-    </div>
-</div>
 
 
 </div>
