@@ -1,45 +1,68 @@
-import java.util.Random;
+import java.util.*;
 
+class MyClass implements Comparable{
 
-class Runner implements Runnable{
-    private Object o;
-    Runner(Object o){
-        this.o = o;
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
+}
+class MyClazz /*implements Comparable*/{
+  private String st;
+    MyClazz(String s){
+        this.st = s;
     }
 
-@Override
-public void run() {
-        while (true)
-        {
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println(Thread.currentThread().getName() + o.toString());
-        }
+    @Override
+    public String toString() {
+        return "MyClazz{" +
+                "st='" + st + '\'' +
+                '}';
+    }
 
+    //@Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }
-        }
+class MyCom implements Comparator<MyClazz>{
+
+    @Override
+    public int compare(MyClazz myClazz, MyClazz t1) {
+        return -1;
+    }
+}
 
 
 public class Threads {
     public static String str = "123";
 
-    public static void main(String[] args) throws InterruptedException {
-        Object o = new Object();
-        Thread thread = new Thread(new Runner(o));
-        Thread thread2 = new Thread(new Runner(o));
 
-        synchronized (o){
-            thread.start();
-            thread2.start();
-        }
-        Thread.sleep(1000);
-        System.out.println(thread.getState());
-        thread.stop();
+
+    public static void main(String[] args) throws InterruptedException {
+        HashSet<String> city = new HashSet<String>();
+        city.add("A");
+        city.add("C");
+        city.add("B");
+        city.add("Q");
+        city.add("L");
+        city.add("Z");
+        city.add("M");
+
+        System.out.println(city);
+        NavigableSet<MyClazz> ns = new TreeSet<MyClazz>(new MyCom());
+        ns.add(new MyClazz("qwe"));
+        ns.add(new MyClazz("qwefds"));
+        ns.add(new MyClazz("qe"));
+        ns.add(new MyClazz("qswe"));
+        ns.add(new MyClazz("qweaaa"));
+        System.out.println(ns);
+    }
+
+
 
     }
-}
+
+
 
 

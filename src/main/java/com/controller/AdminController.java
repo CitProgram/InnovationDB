@@ -7,6 +7,8 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+
 /**
  * Created by pc8 on 28.04.16.
  */
@@ -67,8 +69,8 @@ public class AdminController {
     @RequestMapping(value = "/setSubject", method =  RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void setSubject(@RequestParam String name,
-                           String url){
-
+                           String url, Integer[] memId){
+        System.out.println(Arrays.toString(memId));
        subjectService.setSubject(name, url);
 
     }
