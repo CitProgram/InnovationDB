@@ -63,11 +63,11 @@ mainApp.controller('addOrganizationController', ['$scope', '$http', '$location'
             }
 
             var json = 'organization=' + JSON.stringify(data);
-            alert('json ' + $scope.sphere_for_orgs);
-            alert('json ' + data.scopes);
+
             $http.post(url, json, config)
                 .success(function (json, status, headers, config) {
                     json = null;
+                    $location.url('/');
                 })
                 .error(function (data, status, headers, config) {
                     alert("failure message: " + JSON.stringify({data: data}));
